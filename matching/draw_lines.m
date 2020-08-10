@@ -1,4 +1,4 @@
-function [num_matches, img] = draw_lines_func(images, height, width, prob_score, index_in_gal, index_i, index_j, threshold)  
+function [num_matches, img] = draw_lines(images, height, width, prob_score, index_in_gal, index_i, index_j, threshold)
   [~, ~, hei, wid] = size(prob_score);
   row_step = height / hei;
   col_step = width / wid;
@@ -28,7 +28,7 @@ function [num_matches, img] = draw_lines_func(images, height, width, prob_score,
   num_matches = length(thr_index);
   
   if num_matches > 0  
-    figure(4);
+    figure(1);
     new_width = round(435 * height / 337);
     half = round((new_width - 2 * width) / 2);
     img = [I, J];
@@ -52,5 +52,4 @@ function [num_matches, img] = draw_lines_func(images, height, width, prob_score,
     img = img(:, half + 1 : half + 2 * width, :);
   else
     img = -1;
-  endif
-  
+  end
